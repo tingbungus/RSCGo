@@ -48,7 +48,7 @@ func main() {
 	config.TomlConfig.Crypto.HashMemory = 8
 	config.TomlConfig.Crypto.HashSalt = "rscgo./GOLANG!RULES/.1994"
 	config.TomlConfig.Version = 204
-	config.TomlConfig.Port = 43594 // +1 for websockets
+	config.TomlConfig.Port = 43595 // +1 for websockets
 
 	// if _, err := flags.Parse(cliFlags); err != nil {
 	// log.Warn("Error parsing command arguments:", cliFlags)

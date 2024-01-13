@@ -45,7 +45,7 @@ func init() {
 	// AddHandler("pingreq", func(*Player, *net.Packet) {})
 	// AddHandler("sessionreq", func(player *Player, p *net.Packet) {
 		// // TODO: Remove maybe...TLS deprecates the need for it
-		// player.SetConnected(true)
+		player.SetConnected(true)
 		// p.ReadUint8() // UID, useful?
 		// player.SetServerSeed(rand.Rng.Uint64())
 		// player.SendPacket(net.NewReplyPacket(nil).AddUint64(player.ServerSeed()))
