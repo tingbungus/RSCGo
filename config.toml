@@ -5,9 +5,9 @@ dbio_defs = './data/dbio.conf'
 # The version number of the latest client release.
 version = 235
 # TCP port number to listen for incoming WebSocket connections on.
-port = 43594
+port = 43595
 # TCP port number to listen for incoming TCP Socket connections on.
-tcpPort = 43595
+tcpPort = 43594
 # Maximum number of players that this server can support.
 max_players = 2048
 # The TOML file containing incoming packet definitions.
