@@ -91,18 +91,6 @@ type (
 var (
 	cliFlags = &Flags{}
 	start = time.Now()
-	tlsConfig = &tls.Config{
-		Certificates: []tls.Certificate{
-			check(tls.LoadX509KeyPair("../data/ssl/fullchain.pem", "../data/ssl/privkey.pem")).(tls.Certificate),
-		},
-		ServerName: "rsclassic.dev",
-		InsecureSkipVerify: false,
-		SessionTicketsDisabled: true,
-		PreferServerCipherSuites: true,
-		// ClientAuth: tls.RequireAndVerifyClientCert,
-		ClientAuth: tls.NoClientCert,
-		Rand: rand.Reader,
-	}
 	wsUpgrader = ws.Upgrader{
 		Protocol: func(protocol []byte) bool {
 			return string(protocol) == "binary"
@@ -239,14 +227,14 @@ func (s *Server) accept(l stdnet.Listener) *world.Player {
 func (s *Server) Bind(port int) {
 	s.port = port
 	bindTo := func(listener stdnet.Listener) {
-		for {
-			if p := s.accept(listener); p != nil {
-				s.SubmitLogin(p)
+			for {
+					if p := s.accept(listener); p != nil {
+							s.SubmitLogin(p)
+					}
 			}
-		}
 	}
-	go bindTo(check(stdnet.Listen("tcp", ":" + strconv.Itoa(port+1))).(stdnet.Listener))
-	go bindTo(tls.NewListener(check(stdnet.Listen("tcp", ":" + strconv.Itoa(port))).(stdnet.Listener), tlsConfig))
+	listener := check(stdnet.Listen("tcp", ":" + strconv.Itoa(port))).(stdnet.Listener)
+	go bindTo(listener)
 }
 
 func (s *Server) Start() {
