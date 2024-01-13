@@ -93,7 +93,7 @@ var (
 	start = time.Now()
 	tlsConfig = &tls.Config{
 		Certificates: []tls.Certificate{
-			check(tls.LoadX509KeyPair("./data/ssl/fullchain.pem", "./data/ssl/privkey.pem")).(tls.Certificate),
+			check(tls.LoadX509KeyPair("../data/ssl/fullchain.pem", "../data/ssl/privkey.pem")).(tls.Certificate),
 		},
 		ServerName: "rsclassic.dev",
 		InsecureSkipVerify: false,
