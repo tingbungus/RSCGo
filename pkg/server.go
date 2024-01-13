@@ -10,7 +10,6 @@
 package main
 
 import (
-	"crypto/tls"
 	stdnet "net"
 	"os"
 	"runtime"
@@ -22,7 +21,7 @@ import (
 	"bufio"
 	"encoding/binary"
 	"math"
-	"crypto/rand"
+
 
 	"github.com/gobwas/ws"
 	"github.com/gobwas/ws/wsutil"
