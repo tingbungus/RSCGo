@@ -1,4 +1,4 @@
-module github.com/spkaeros/rscgo
+module github.com/tingbungus/rscgo
 
 go 1.14
 
